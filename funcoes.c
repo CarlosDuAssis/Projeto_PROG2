@@ -13,7 +13,7 @@ void exibirMenu(){
             "3 - Exportar dados\n"
             "4 - Sair do Programa\n");
     return;
-}
+}//exibirMenu
 
 int contaLinhas(FILE* fp){
 
