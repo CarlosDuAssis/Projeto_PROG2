@@ -24,8 +24,8 @@ int contaLinhas(FILE* fp){
      while ((c = fgetc(fp)) != EOF) {
         if (c == '\n') {
             contador++;
-        }
-    }
+        }//if
+    }//while
 
     return contador;
-}
+}//contaLinhas
