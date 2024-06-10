@@ -27,5 +27,7 @@ int contaLinhas(FILE* fp){
         }//if
     }//while
 
+    rewind(fp);
+    
     return contador;
 }//contaLinhas
