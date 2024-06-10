@@ -31,3 +31,37 @@ int contaLinhas(FILE* fp){
     
     return contador;
 }//contaLinhas
+
+Medalha* separaDados(FILE* fp, int contadorLinhas, Medalha* medalhas){
+
+    int contador = 0;
+
+    fp = fopen("arquivos/medalhas.csv", "r");
+    if (fp == NULL)
+        {
+            perror("Erro ao abrir o arquivo medalhas.csv.\n");
+            exit(1);
+        }
+
+    for (int i = 0; i < contadorLinhas; i++) {
+        if (fscanf(fp, "%c,%63[^,],%63[^,],%d,%c,%63[^,],%63[^,],%63[^\n]",
+            &medalhas[i].genero,
+            medalhas[i].modalidade,
+            medalhas[i].cidade,
+            &medalhas[i].ano,
+            &medalhas[i].tipoMedalha,
+            medalhas[i].nomeAtleta,
+            medalhas[i].paisOrigem,
+            medalhas[i].resultado) != 9) {
+            fprintf(stderr, "Erro ao ler linha %d do arquivo CSV.\n", i + 1);
+            free(medalhas);
+            fclose(fp);
+            return NULL;
+        }
+        fgetc(fp); // Ler o caractere de nova linha após o fim da leitura de cada linha
+    }
+    
+    fclose(fp);
+
+    return medalhas;
+}
