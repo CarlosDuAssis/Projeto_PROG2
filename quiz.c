@@ -23,14 +23,14 @@ int main(){
     //randomiza a variável número entre 1 a 20
     numero = rand() % 20; 
 
-    case :
+     case :
             printf("\n"
             "1- \n"
             "2- \n"
             "3- \n"
             "4- \n");
             scanf("%d",&opcao);
-            resposta = ;
+            resposta = 1;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
@@ -58,7 +58,7 @@ int main(){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: 3- Atenas (Grecia) \n");
+                printf(" não foi dessa vez :( \n A respota correta era: Atenas (Grecia) \n");
                 i=20;
             break;
             }
@@ -75,7 +75,7 @@ int main(){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: 1- Revezamento\n");
+                printf(" não foi dessa vez :( \n A respota correta era: Revezamento\n");
                 i=20;
             break;
             }
@@ -83,306 +83,221 @@ int main(){
         case 3:
             printf("Cada cor de cada arco olímpico representa um dos continentes.\n"
             "Qual arco representa a Ásia e a América respectivamente?\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            "1- Verde e Azul \n"
+            "2- Preto e vermelho\n"
+            "3- Amarelo e Vermelho\n"
+            "4- Amarelo e Azul\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 3;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: Amarelo e Vermelho\n");
                 i=20;
             break;
             }
 
         case 4:
             printf("Quantas rais tem uma pista de atletismo?\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            "1- 7\n"
+            "2- 8\n"
+            "3- 9\n"
+            "4- 10\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 2;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 8\n");
                 i=20;
             break;
             }
         
         case 5:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("Qual modalidade da corrida não tem curva em sua trajetória\n"
+            "1- 200m\n"
+            "2- 50m\n"
+            "3- 100m\n"
+            "4- 150m\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 3;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 100m\n");
                 i=20;
             break;
             }
 
         case 6:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("Qual a primeira edição que as mulheres puderam participar?\n"
+            "1- Paris 1900\n"
+            "2- Saint Louis 1904\n"
+            "3- Londres 1908\n"
+            "4- Estocolmo 1912\n");
             scanf("%d",&opcao);
             resposta = 1;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: Paris 1900\n");
                 i=20;
             break;
             }
 
         case 7:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("No tiro com arco, quanto o atleta ganha em pontos ao acertar o centro do alvo?\n"
+            "1- 6 pontos\n"
+            "2- 8 pontos\n"
+            "3- 10 pontos\n"
+            "4- 12 pontos\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 3;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 10 pontos\n");
                 i=20;
             break;
             }
         
         case 8:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("Quantos metros um nadador percorre ao competir na categoria Medley em uma prova de natação?\n"
+            "1- 100 metros\n"
+            "2- 200 metros\n"
+            "3- 300 metros\n"
+            "4- 400 metros\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 4;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 400 metros\n");
                 i=20;
             break;
             }
 
         case 9:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("Quantas modalidades de atletismo existem?\n"
+            "1- 12\n"
+            "2- 24\n"
+            "3- 32\n"
+            "4- 45\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 2;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 24\n");
                 i=20;
             break;
             }
 
         case 10:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("Onde ocorre a prova de Maratona Aquática?\n"
+            "1- Piscina olimpica\n"
+            "2- Mar aberto\n"
+            "3- Rio\n"
+            "4- Lago\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 2;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: Mar aberto\n");
                 i=20;
             break;
             }
 
         case 11:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("Qual o recorde conquistado por Usain Bolt nos 100 metros rasos? (Olimpíada)\n"
+            "1- 8,14 seg\n"
+            "2- 11,28 seg\n"
+            "3- 9,69 seg\n"
+            "4- 10,32 seg\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 3;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 9,69 seg\n");
                 i=20;
             break;
             }
 
             case 12:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("Qual o recorde do salto com vara masculino? (Olimpíada)\n"
+            "1- 9,12 metros\n"
+            "2- 8,18 metros\n"
+            "3- 7,51 metros\n"
+            "4- 6,03 metros\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 4;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 6,03 metros\n");
                 i=20;
             break;
             }
 
         case 13:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("Qual o recorde do salto à distãncia feminino? (Olimpíada)\n"
+            "1- 5,60 metros\n"
+            "2- 6,40 metros\n"
+            "3- 7,40 metros\n"
+            "4- 7,90 metros\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 3;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 7,40 metros\n");
                 i=20;
             break;
             }
 
         case 14:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("De quantos quilometros (aproxidamente) é composta a maratona?\n"
+            "1- 28 km\n"
+            "2- 30 km\n"
+            "3- 38 km\n"
+            "4- 42 km\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 4;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 42km\n");
                 i=20;
             break;
             }
 
         case 15:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
+            printf("Quantas bases tem o campo de beisebol\n"
+            "1- 2\n"
+            "2- 4\n"
+            "3- 7\n"
+            "4- 9\n");
             scanf("%d",&opcao);
-            resposta = 1;
+            resposta = 2;
             if(opcao == resposta){
                 printf(" Correto! :D\n\n");
                 i++;
             }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
-                i=20;
-            break;
-            }
-
-        case 16:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
-            scanf("%d",&opcao);
-            resposta = 1;
-            if(opcao == resposta){
-                printf(" Correto! :D\n\n");
-                i++;
-            }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
-                i=20;
-            break;
-            }
-
-        case 17:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
-            scanf("%d",&opcao);
-            resposta = 1;
-            if(opcao == resposta){
-                printf(" Correto! :D\n\n");
-                i++;
-            }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
-                i=20;
-            break;
-            }
-
-        case 18:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
-            scanf("%d",&opcao);
-            resposta = 1;
-            if(opcao == resposta){
-                printf(" Correto! :D\n\n");
-                i++;
-            }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
-                i=20;
-            break;
-            }
-
-        case 19:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
-            scanf("%d",&opcao);
-            resposta = 1;
-            if(opcao == resposta){
-                printf(" Correto! :D\n\n");
-                i++;
-            }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
-                i=20;
-            break;
-            }
-
-        case 20:
-            printf("\n"
-            "1- \n"
-            "2- \n"
-            "3- \n"
-            "4- \n");
-            scanf("%d",&opcao);
-            resposta = 1;
-            if(opcao == resposta){
-                printf(" Correto! :D\n\n");
-                i++;
-            }else{
-                printf(" não foi dessa vez :( \n A respota correta era: \n");
+                printf(" não foi dessa vez :( \n A respota correta era: 4\n");
                 i=20;
             break;
             }
