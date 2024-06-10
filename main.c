@@ -19,7 +19,7 @@ int main(){
         fp = fopen("arquivos/medalhas.csv", "r");
         if (fp == NULL)
         {
-            perror("Erro ao abrir o arquivo.\n");
+            perror("Erro ao abrir o arquivo medalhas.csv.\n");
             exit(1);
         }
         
@@ -33,40 +33,21 @@ int main(){
         }
         
 
-        for (int i = 0; i < contadorLinhas; i++) {
-            if (fscanf(fp, "%c,%20[^,],%20[^,],%d,%c,%30[^,],%20[^,],%16[^\n]",
-                &medalhas[i].genero,
-                medalhas[i].modalidade,
-                medalhas[i].cidade,
-                &medalhas[i].ano,
-                &medalhas[i].tipoMedalha,
-                medalhas[i].nomeAtleta,
-                medalhas[i].paisOrigem,
-                medalhas[i].resultado) != 8) {
-                perror("Erro ao ler linha do arquivo CSV.\n");
-                free(medalhas);
-                fclose(fp);
-                exit(1);
-            }
-            fgetc(fp);
-        }
-        fclose(fp);
+       medalhas = separaDados(fp, contadorLinhas, medalhas);
 
         fp = fopen("arquivos/dadosMedalhas.dat", "wb");
         if (fp == NULL)
         {
-            perror("Erro ao abrir o arquivo.\n");
+            perror("Erro ao abrir o arquivo dadosMedalhas.dat.\n");
             exit(1);
         }
 
         fwrite(medalhas, sizeof(Medalha), contadorLinhas, fp);
         fclose(fp);
-        free(medalhas);
 
     }else{
-        fclose(fp); // programa ja foi executado antes
+        fclose(fp);
     }
-
 
     return 0;
 }
