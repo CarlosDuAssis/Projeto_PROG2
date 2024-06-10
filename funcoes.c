@@ -52,7 +52,7 @@ Medalha* separaDados(FILE* fp, int contadorLinhas, Medalha* medalhas){
             &medalhas[i].tipoMedalha,
             medalhas[i].nomeAtleta,
             medalhas[i].paisOrigem,
-            medalhas[i].resultado) != 9) {
+            medalhas[i].resultado) != 8) {
             fprintf(stderr, "Erro ao ler linha %d do arquivo CSV.\n", i + 1);
             free(medalhas);
             fclose(fp);
