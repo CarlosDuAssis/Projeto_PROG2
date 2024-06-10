@@ -16,12 +16,12 @@ int main(){
     int opcao;
     int resposta;
 
-    /*
     //permite que seja possivel variar o valor da variável toda vez que o programa rodar
     srand(time(NULL)); 
 
     //randomiza a variável número entre 1 a 20
     numero = rand() % 20; 
+    /*
 
     case :
             printf("\n"
