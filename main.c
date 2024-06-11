@@ -6,7 +6,7 @@
 int main(){
 
     FILE* fp;
-    fp = fopen("arquivos/dadosMedalhas.dat", "wb");
+    fp = fopen("arquivos/dadosMedalhas.dat", "r");
 
     int contadorLinhas = 0;
 
@@ -34,6 +34,25 @@ int main(){
         
 
        medalhas = separaDados(fp, contadorLinhas, medalhas);
+
+
+    // EXEMPLO DE COMO FICOU OS DADOS ---------------------------------------------------------------
+         if (medalhas != NULL) {
+        // Exemplo de como usar os dados lidos
+        for (int i = 0; i < contadorLinhas; i++) {
+            printf("Medalha %d: %c, %s, %s, %d, %c, %s, %s, %s\n", 
+                i + 1, medalhas[i].genero, medalhas[i].modalidade, 
+                medalhas[i].cidade, medalhas[i].ano, medalhas[i].tipoMedalha, 
+                medalhas[i].nomeAtleta, medalhas[i].paisOrigem, medalhas[i].resultado);
+        }
+
+        // Liberar memória alocada
+        free(medalhas);
+    } else {
+        printf("Falha ao processar o arquivo CSV.\n");
+    }
+    // FIM DO EXEMPLO --------------------------------------------------------------------------------
+
 
         fp = fopen("arquivos/dadosMedalhas.dat", "wb");
         if (fp == NULL)
