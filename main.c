@@ -15,6 +15,7 @@ int main(){
     if (fp == NULL)
     {
 
+        // abre o .csv
         fp = fopen("arquivos/medalhas.csv", "r");
         if (fp == NULL)
         {
@@ -22,8 +23,10 @@ int main(){
             exit(1);
         }
         
+        // função pra contar as linhas do arquivo (tamanho)
         contadorLinhas = contaLinhas(fp);
 
+        //aloca dinamicamente o vetor medalhas inicial
         medalhas = (Medalha*) malloc(contadorLinhas * sizeof(Medalha));
         if (medalhas == NULL)
         {
@@ -31,25 +34,26 @@ int main(){
             exit(1);
         }
         
-
+        // faz o parse do .csv e salva no vetor medalhas
        medalhas = separaDados(fp, &contadorLinhas, medalhas);
 
-
+        // abre o arq dadosMedalhas e salva os dados o vetor medalhas em binário, depois fecha o arq
         fp = fopen("arquivos/dadosMedalhas.dat", "wb");
         if (fp == NULL)
         {
             perror("Erro ao abrir o arquivo dadosMedalhas.dat.\n");
             exit(1);
         }
-
         fwrite(medalhas, sizeof(Medalha), contadorLinhas, fp);
         fclose(fp);
 
+
     }else{
-        fclose(fp);
+        fclose(fp); // caso o aarq exista, o programa já foi executado antes.
     }
 
-    listarMedalhas(medalhas, &contadorLinhas);
+    // inicia o programa exibindo o menu
+    exibirMenu();
 
     free(medalhas);
 
