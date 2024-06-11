@@ -32,7 +32,7 @@ int contaLinhas(FILE* fp){
     return contador;
 }//contaLinhas
 
-Medalha* separaDados(FILE* fp, int contadorLinhas, Medalha* medalhas){
+Medalha* separaDados(FILE* fp, int* contadorLinhas, Medalha* medalhas){
 
     int contador = 0;
 
@@ -43,7 +43,7 @@ Medalha* separaDados(FILE* fp, int contadorLinhas, Medalha* medalhas){
             exit(1);
         }
 
-    for (int i = 0; i < contadorLinhas; i++) {
+    for (int i = 0; i < (*contadorLinhas); i++) {
         if (fscanf(fp, "%c,%63[^,],%63[^,],%d,%c,%63[^,],%63[^,],%63[^\n]",
             &medalhas[i].genero,
             medalhas[i].modalidade,
@@ -64,4 +64,22 @@ Medalha* separaDados(FILE* fp, int contadorLinhas, Medalha* medalhas){
     fclose(fp);
 
     return medalhas;
+}
+
+void listarMedalhas(Medalha* medalhas, int* contadorLinhas){
+
+    if (medalhas != NULL) {
+        // Exemplo de como usar os dados lidos
+        for (int i = 0; i < (*contadorLinhas); i++) {
+            printf("Medalha %d: %c, %s, %s, %d, %c, %s, %s, %s\n", 
+                i + 1, medalhas[i].genero, medalhas[i].modalidade, 
+                medalhas[i].cidade, medalhas[i].ano, medalhas[i].tipoMedalha, 
+                medalhas[i].nomeAtleta, medalhas[i].paisOrigem, medalhas[i].resultado);
+        }
+
+    } else {
+        printf("Falha ao processar o arquivo CSV.\n");
+    }
+
+    return;
 }

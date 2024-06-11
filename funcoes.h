@@ -18,7 +18,8 @@ typedef struct
 
 void exibirMenu();
 int contaLinhas(FILE* fp);
-Medalha* separaDados(FILE* fp, int contadorLinhas, Medalha* medalhas);
+Medalha* separaDados(FILE* fp, int *contadorLinhas, Medalha* medalhas);
+void listarMedalhas(Medalha* medalhas, int* contadorLinhas);
 
 #endif /* FUNCOES_H */
 

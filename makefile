@@ -1,25 +1,23 @@
-# Nome do executável
-EXEC = programa
+main: main.o funcoes.o
+	@echo "Gerando arquivo executável"
+	gcc main.o funcoes.o -o main
 
-# Compilador
-CC = gcc
+main.o: main.c
+	@echo "Compilando main.c"
+	gcc -c main.c
 
-# Flags de compilação
-CFLAGS = -Wall -Wextra -g
+funcoes.o: funcoes.c
+	@echo "Compilando funcoes.c"
+	gcc -c funcoes.c
 
-# Arquivos de código-fonte e objetos
-SRCS = main.c funcoes.c
-OBJS = $(SRCS:.c=.o)
-
-# Regra principal
-$(EXEC): $(OBJS)
-	$(CC) $(CFLAGS) -o $(EXEC) $(OBJS)
-
-# Regra para compilar os arquivos .c em .o
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Limpeza dos arquivos objeto e executável
-.PHONY: clean
 clean:
-	rm -f $(OBJS) $(EXEC)
+	@echo "Apagando objetos e executáveis antigos"
+	del /Q *.o  *.exe main
+
+run: main
+	./main
+
+
+# compilar no windows: mingw32-make
+# executar: mingw32-make run
+# clean: mingw32-make clean

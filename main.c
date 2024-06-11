@@ -9,13 +9,12 @@ int main(){
     fp = fopen("arquivos/dadosMedalhas.dat", "r");
 
     int contadorLinhas = 0;
+    Medalha* medalhas;
 
     // neste caso, caso o arquivo de dados das medalhas seja nulo, signfica que é a primeira vez que o programa está sendo aberto
     if (fp == NULL)
     {
 
-        Medalha* medalhas;
-        
         fp = fopen("arquivos/medalhas.csv", "r");
         if (fp == NULL)
         {
@@ -33,23 +32,7 @@ int main(){
         }
         
 
-       medalhas = separaDados(fp, contadorLinhas, medalhas);
-
-
-    // EXEMPLO DE COMO FICOU OS DADOS ---------------------------------------------------------------
-         if (medalhas != NULL) {
-        // Exemplo de como usar os dados lidos
-        for (int i = 0; i < contadorLinhas; i++) {
-            printf("Medalha %d: %c, %s, %s, %d, %c, %s, %s, %s\n", 
-                i + 1, medalhas[i].genero, medalhas[i].modalidade, 
-                medalhas[i].cidade, medalhas[i].ano, medalhas[i].tipoMedalha, 
-                medalhas[i].nomeAtleta, medalhas[i].paisOrigem, medalhas[i].resultado);
-        }
-
-    } else {
-        printf("Falha ao processar o arquivo CSV.\n");
-    }
-    // FIM DO EXEMPLO --------------------------------------------------------------------------------
+       medalhas = separaDados(fp, &contadorLinhas, medalhas);
 
 
         fp = fopen("arquivos/dadosMedalhas.dat", "wb");
@@ -65,6 +48,10 @@ int main(){
     }else{
         fclose(fp);
     }
+
+    listarMedalhas(medalhas, &contadorLinhas);
+
+    free(medalhas);
 
     return 0;
 }
