@@ -46,8 +46,6 @@ int main(){
                 medalhas[i].nomeAtleta, medalhas[i].paisOrigem, medalhas[i].resultado);
         }
 
-        // Liberar memória alocada
-        free(medalhas);
     } else {
         printf("Falha ao processar o arquivo CSV.\n");
     }
