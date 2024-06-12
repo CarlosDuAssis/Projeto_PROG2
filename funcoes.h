@@ -1,4 +1,4 @@
-// arquivo de cabeçalhos
+// arquivo de cabeçalhos pra funcoes
 
 #ifndef FUNCOES_H
 #define FUNCOES_H
@@ -16,10 +16,10 @@ typedef struct
     char resultado[64];
 } Medalha;
 
-void exibirMenu();
 int contaLinhas(FILE* fp);
 Medalha* separaDados(FILE* fp, int *contadorLinhas, Medalha* medalhas);
 void listarMedalhas(Medalha* medalhas, int* contadorLinhas);
+void inserirMedalhas(Medalha* medalhas, int* contadorLinhas);
 
 #endif /* FUNCOES_H */
 
