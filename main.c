@@ -94,11 +94,11 @@ int main(){
         {
             printf("Deseje a opção desejada: ");
             scanf("%d", &opcaoSecundaria);
-            if (opcaoSecundaria <= 0 || opcaoSecundaria > 4)
+            if (opcaoSecundaria <= 0 || opcaoSecundaria > 5)
             {
                 printf("Opção inválida!\n");
             } // if
-        } while (opcao <= 0 || opcao > 4);
+        } while (opcao <= 0 || opcao > 5);
 
         if (opcaoSecundaria == 1)
         {
@@ -165,7 +165,7 @@ int main(){
         } // ultimo if
 
         break; // case 1
-        
+
     case 2:
         break;
     default:
