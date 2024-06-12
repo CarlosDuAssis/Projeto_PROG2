@@ -85,8 +85,8 @@ void inserirMedalhas(Medalha* medalhas, int* contadorLinhas){
     while (1)
     {
 
-        setbuf(NULL, stdin);
-        
+        setbuf(stdin, NULL);
+
         printf("Digite o nome do atleta (ou ""fim"" para encerrar o cadastro): ");
         fgets(medalhas[contador + 1].nomeAtleta, 64, stdin);
         medalhas[contador + 1].nomeAtleta[strcspn(medalhas[contador + 1].nomeAtleta, "\n")] = '\0';
