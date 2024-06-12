@@ -168,6 +168,23 @@ int main(){
 
     case 2:
         break;
+    case 3:
+        break;
+    case 4:
+
+        printf("Saindo do programa.\n");
+
+        // abre o arq dadosMedalhas e salva os dados o vetor medalhas em binário, depois fecha o arq
+        fp = fopen("arquivos/dadosMedalhas.dat", "wb");
+        if (fp == NULL)
+        {
+            perror("Erro ao abrir o arquivo dadosMedalhas.dat.\n");
+            exit(1);
+        }
+        fwrite(medalhas, sizeof(Medalha), contadorLinhas, fp);
+        fclose(fp);
+
+        break; // case 4
     default:
         break;
     } // switch 
