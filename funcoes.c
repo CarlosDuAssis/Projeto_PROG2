@@ -3,105 +3,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "funcoes.h"
-
-void exibirMenu(){
-
-    printf("Menu: \n");
-    printf("1 - Gerenciamento de Medalhas\n"
-            "2 - Quiz\n"
-            "3 - Exportar dados\n"
-            "4 - Sair do Programa\n");
-    return;
-}//exibirMenu
-
-int contaLinhas(FILE* fp){
-
-    int contador = 1; // todo arquivo possui ao menos 1 linha
-    char c;
-
-    // cada quebra de linha soma no contador
-     while ((c = fgetc(fp)) != EOF) {
-        if (c == '\n') {
-            contador++;
-        }//if
-    }//while
-
-    rewind(fp);
-    
-    return contador;
-}//contaLinhas
-
-Medalha* separaDados(FILE* fp, int* contadorLinhas, Medalha* medalhas){
-
-    int contador = 0;
-
-    fp = fopen("arquivos/medalhas.csv", "r");
-    if (fp == NULL)
-        {
-            perror("Erro ao abrir o arquivo medalhas.csv.\n");
-            exit(1);
-        }
-
-    for (int i = 0; i < (*contadorLinhas); i++) {
-        if (fscanf(fp, "%c,%63[^,],%63[^,],%d,%c,%63[^,],%63[^,],%63[^\n]",
-            &medalhas[i].genero,
-            medalhas[i].modalidade,
-            medalhas[i].cidade,
-            &medalhas[i].ano,
-            &medalhas[i].tipoMedalha,
-            medalhas[i].nomeAtleta,
-            medalhas[i].paisOrigem,
-            medalhas[i].resultado) != 8) {
-            fprintf(stderr, "Erro ao ler linha %d do arquivo CSV.\n", i + 1);
-            free(medalhas);
-            fclose(fp);
-            return NULL;
-        }
-        fgetc(fp); // Ler o caractere de nova linha após o fim da leitura de cada linha
-    }
-    
-    fclose(fp);
-
-    return medalhas;
-}
-
-void listarMedalhas(Medalha* medalhas, int* contadorLinhas){
-
-    if (medalhas != NULL) {
-        // Exemplo de como usar os dados lidos
-        for (int i = 0; i < (*contadorLinhas); i++) {
-            printf("Medalha %d: %c, %s, %s, %d, %c, %s, %s, %s\n", 
-                i + 1, medalhas[i].genero, medalhas[i].modalidade, 
-                medalhas[i].cidade, medalhas[i].ano, medalhas[i].tipoMedalha, 
-                medalhas[i].nomeAtleta, medalhas[i].paisOrigem, medalhas[i].resultado);
-        }
-
-    } else {
-        printf("Falha ao processar o arquivo CSV.\n");
-    }
-
-    return;
-}
-
-// arquivo com todas as funções base do programa 
-
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
 #include<ctype.h>
 #include "funcoes.h"
 
-void exibirMenu(){
-
-    printf("Menu: \n");
-    printf("1 - Gerenciamento de Medalhas\n"
-            "2 - Quiz\n"
-            "3 - Exportar dados\n"
-            "4 - Sair do Programa\n");
-    return;
-}//exibirMenu
-
 int contaLinhas(FILE* fp){
 
     int contador = 1; // todo arquivo possui ao menos 1 linha
@@ -131,6 +35,7 @@ Medalha* separaDados(FILE* fp, int* contadorLinhas, Medalha* medalhas){
         }
 
     for (int i = 0; i < (*contadorLinhas); i++) {
+        medalhas[i].codigo = i + 1;
         if (fscanf(fp, "%c,%63[^,],%63[^,],%d,%c,%63[^,],%63[^,],%63[^\n]",
             &medalhas[i].genero,
             medalhas[i].modalidade,
@@ -140,12 +45,12 @@ Medalha* separaDados(FILE* fp, int* contadorLinhas, Medalha* medalhas){
             medalhas[i].nomeAtleta,
             medalhas[i].paisOrigem,
             medalhas[i].resultado) != 8) {
-            fprintf(stderr, "Erro ao ler linha %d do arquivo CSV.\n", i + 1);
+            perror("Erro ao ler arquivo csv.\n");
             free(medalhas);
             fclose(fp);
             return NULL;
         }
-        fgetc(fp); // Ler o caractere de nova linha após o fim da leitura de cada linha
+        fgetc(fp); // le o caractere de nova linha depois do fim da leitura de cada linha
     }
     
     fclose(fp);
@@ -156,10 +61,9 @@ Medalha* separaDados(FILE* fp, int* contadorLinhas, Medalha* medalhas){
 void listarMedalhas(Medalha* medalhas, int* contadorLinhas){
 
     if (medalhas != NULL) {
-        // Exemplo de como usar os dados lidos
         for (int i = 0; i < (*contadorLinhas); i++) {
             printf("Medalha %d: %c, %s, %s, %d, %c, %s, %s, %s\n", 
-                i + 1, medalhas[i].genero, medalhas[i].modalidade, 
+                medalhas[i].codigo, medalhas[i].genero, medalhas[i].modalidade, 
                 medalhas[i].cidade, medalhas[i].ano, medalhas[i].tipoMedalha, 
                 medalhas[i].nomeAtleta, medalhas[i].paisOrigem, medalhas[i].resultado);
         }
@@ -169,7 +73,71 @@ void listarMedalhas(Medalha* medalhas, int* contadorLinhas){
     }
 
     return;
-}
+} // listarMedalhas
+
+void inserirMedalhas(Medalha* medalhas, int* contadorLinhas){
+
+    int contador = (*contadorLinhas); // conta quantas medalhas novas foram cadastradas
+
+    printf("Vamos cadastrar uma nova medalha: \n");
+    medalhas = realloc(medalhas, (contador + 1) * sizeof(Medalha)); // espaço para a nova medalha a ser cadastrada
+
+    while (1)
+    {
+
+        setbuf(NULL, stdin);
+        
+        printf("Digite o nome do atleta (ou ""fim"" para encerrar o cadastro): ");
+        fgets(medalhas[contador + 1].nomeAtleta, 64, stdin);
+        medalhas[contador + 1].nomeAtleta[strcspn(medalhas[contador + 1].nomeAtleta, "\n")] = '\0';
+        if (strcmp(medalhas[contador + 1].nomeAtleta, "fim") == 0)
+        {
+            printf("Fim do cadastro de medalhas.\n");
+        }
+
+        medalhas[contador + 1].codigo = contador + 1;
+
+        printf("Digite o gênero do atleta (M ou W): ");
+        scanf("%c", &medalhas[contador + 1].genero);
+
+        printf("Digite o país de origem do atleta: ");
+        fgets(medalhas[contador + 1].paisOrigem, 64, stdin);
+        medalhas[contador + 1].paisOrigem[strcspn(medalhas[contador + 1].paisOrigem, "\n")] = '\0';
+
+        printf("Digite a modalidade: ");
+        fgets(medalhas[contador + 1].modalidade, 64, stdin);
+        medalhas[contador + 1].modalidade[strcspn(medalhas[contador + 1].modalidade, "\n")] = '\0';
+
+        printf("Digite a cidade onde ocorreu as Olimpíadas: ");
+        fgets(medalhas[contador + 1].cidade, 64, stdin);
+        medalhas[contador + 1].cidade[strcspn(medalhas[contador + 1].cidade, "\n")] = '\0';
+
+        printf("Digite o ano das Olimpíadas: ");
+        scanf("%d", &medalhas[contador + 1].ano);
+
+        printf("Digite a medalha obtida (G, S ou B): ");
+        scanf("%c", &medalhas[contador + 1].tipoMedalha);
+
+        printf("Digite o resultado: ");
+        fgets(medalhas[contador + 1].resultado, 64, stdin);
+        medalhas[contador + 1].resultado[strcspn(medalhas[contador + 1].resultado, "\n")] = '\0';
+
+        contador++;
+
+        // quando o contador exceder o tamanho do vetor de medalhas, realoca mais 2 espaços para cadastro
+        if (contador >= (*contadorLinhas))
+        {
+            medalhas = realloc(medalhas, (contador + 2) * sizeof(Medalha));
+        } // if
+        
+    } // while
+
+    // ao fim dos cadastros, realoca o vetor medalha para a quantidade exata de cadastros existentes
+    medalhas = realloc(medalhas, contador * sizeof(Medalha));
+    (*contadorLinhas) = contador; // novo tamanho do vetor medalhas
+
+    return;
+} // inserirMedalhas
 
 void pesquisaMedalha(){
 
