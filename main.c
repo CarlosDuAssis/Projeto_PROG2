@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include "funcoes.h"
+#include "quiz.h"
 
 int main(){
 
@@ -167,7 +168,32 @@ int main(){
         break; // case 1
 
     case 2:
-        break;
+        printf("Você escolheu a opção quiz!\n\n");
+        quiz();
+        printf("\n\nRetornando ao menu...\n\n");
+
+
+        // exibe o menu novamente
+        printf("Menu: \n");
+        printf("1 - Gerenciamento de Medalhas\n"
+                "2 - Quiz\n"
+                "3 - Exportar dados\n"
+                "4 - Sair do Programa\n");
+
+        
+        // pede uma opção válida
+        do
+        {
+            printf("Deseje a opção desejada: ");
+            scanf("%d", &opcao);
+            if (opcao <= 0 || opcao > 4)
+            {
+                printf("Opção inválida!\n");
+            } // if
+        } while (opcao <= 0 || opcao > 4);
+
+        break; // case 2
+
     case 3:
         break;
     case 4:
@@ -188,8 +214,6 @@ int main(){
     default:
         break;
     } // switch 
-
-
 
     free(medalhas);
 
