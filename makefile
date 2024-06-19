@@ -10,9 +10,9 @@ endif
 # executar: mingw32-make run
 # clean: mingw32-make clean
 
-main: main.o funcoes.o
+main: main.o funcoes.o quiz.o
 	@echo "Gerando arquivo executável"
-	gcc main.o funcoes.o -o main
+	gcc main.o funcoes.o  quiz.o -o main
 
 main.o: main.c
 	@echo "Compilando main.c"
