@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <ctype.h>
+#include "funcoes.h"
+#include "quiz.h"
 
 #define NUM_PERGUNTAS 15  // Número total de perguntas
 
-int main() {
+void quiz() {
     int perguntas_feitas[NUM_PERGUNTAS] = {0}; // Array para controlar perguntas feitas
     char opcao;
     int resposta;
@@ -43,7 +45,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: Atenas (Grécia) \n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; // Encerra o programa se errar
+                    return; // Encerra o programa se errar
                 }
                 break;
 
@@ -62,7 +64,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: Revezamento\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -82,7 +84,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: Amarelo e Vermelho\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -101,7 +103,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 8\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -120,7 +122,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 100m\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -139,7 +141,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: Paris 1900\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -158,7 +160,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 10 pontos\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -177,7 +179,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 400 metros\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -196,7 +198,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 24\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -215,7 +217,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: Mar aberto\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -234,7 +236,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 9,69 seg\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -253,7 +255,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 6,03 metros\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -272,7 +274,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 7,40 metros\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -291,7 +293,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 42 km\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -310,7 +312,7 @@ int main() {
                 } else {
                     printf(" Não foi dessa vez :( \n A resposta correta era: 4\n");
                     printf("Número de acertos: %d\n", acertos);
-                    return 0; 
+                    return; 
                 }
                 break;
 
@@ -321,5 +323,5 @@ int main() {
 
     printf("\nParabéns! Você acertou todas as perguntas!\n");
 
-    return 0;
+    return;
 }
