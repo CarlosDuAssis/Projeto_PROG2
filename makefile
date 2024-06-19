@@ -22,6 +22,10 @@ funcoes.o: funcoes.c
 	@echo "Compilando funcoes.c"
 	gcc -c funcoes.c
 
+quiz.o: quiz.c
+	@echo "Compilando quiz.c"
+	gcc -c quiz.c
+
 clean:
 	@echo "Apagando objetos e executáveis antigos"
 	$(RM) *.o *$(EXEC_EXT) main
